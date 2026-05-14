@@ -6,18 +6,21 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="mobile-web-app-capable" content="yes">
+  
   <link rel="manifest" href="manifest.json">
+  <link rel="apple-touch-icon" href="logo.png">
+  <meta name="theme-color" content="#D35400">
+  
   <title>曜明精算</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <style>
-    /* 🔥 五行火土相生配色設定 */
     :root { 
-      --primary: #D35400;   /* 曜石赤橘 (火/土) - 主色調 */
-      --accent: #F1C40F;    /* 黃金燦土 (土) - 輔助色 */
-      --bg: #12100E;        /* 暖黑底色，接地氣 */
+      --primary: #D35400;   /* 曜石赤橘 (火/土) */
+      --accent: #F1C40F;    /* 黃金燦土 (土) */
+      --bg: #12100E;        /* 暖黑底色 */
       --card: #1A1816;      /* 卡片底色 */
       --text: #F5F5F5; 
-      --wave: rgba(211, 84, 0, 0.4); /* 赤橘色波紋 */
+      --wave: rgba(211, 84, 0, 0.4); 
     }
     body { font-family: 'Segoe UI', sans-serif; background: var(--bg); color: var(--text); margin: 0; padding: env(safe-area-inset-top) 20px 20px 20px; display: flex; flex-direction: column; align-items: center; min-height: 100vh; box-sizing: border-box; overscroll-behavior-y: contain; }
     .app-card { background: var(--card); width: 100%; max-width: 450px; border-radius: 24px; padding: 25px; box-sizing: border-box; border: 1px solid #332B25; margin-top: 10px; position: relative; }
@@ -27,13 +30,13 @@
     .input-group { margin-bottom: 15px; }
     label { display: block; margin-bottom: 6px; font-size: 13px; color: #999; }
     
-    input[type="text"], input[type="number"], input[type="datetime-local"], select { width: 100%; background: #24211E; border: 1px solid #4A3E35; padding: 14px; border-radius: 12px; color: #fff; font-size: 16px; box-sizing: border-box; }
+    input[type="text"], input[type="number"], select { width: 100%; background: #24211E; border: 1px solid #4A3E35; padding: 14px; border-radius: 12px; color: #fff; font-size: 16px; box-sizing: border-box; }
     input:focus, select:focus { border-color: var(--primary); outline: none; }
     input[list]::-webkit-calendar-picker-indicator { display: none !important; }
     input[type="checkbox"] { width: 16px; height: 16px; accent-color: var(--primary); cursor: pointer; }
     .photo-btn { background: #2E2925; border: 2px dashed #5A4E45; display: flex; flex-direction: column; align-items: center; justify-content: center; border-radius: 12px; cursor: pointer; transition: background 0.2s; }
     .photo-btn:active { background: #4A3E35; }
-    .delete-icon { color: #5C4033; font-size: 18px; cursor: pointer; padding-left: 15px; } /* 深咖啡色(土)鎮壓 */
+    .delete-icon { color: #5C4033; font-size: 18px; cursor: pointer; padding-left: 15px; }
     #submit-btn { background: var(--primary); color: #fff; width: 100%; padding: 18px; border-radius: 50px; border: none; font-size: 18px; font-weight: bold; margin-top: 10px; cursor: pointer; position: relative; overflow: hidden; }
     #submit-btn:disabled { background: #4A3E35; color: #888; cursor: not-allowed; }
     .ripple { position: absolute; background: var(--wave); border-radius: 50%; transform: scale(0); animation: ripple-animation 0.6s linear; pointer-events: none; }
@@ -54,7 +57,7 @@
     .modal-actions { display: flex; gap: 15px; }
     .modal-btn { flex: 1; padding: 14px; border-radius: 12px; border: none; font-size: 16px; font-weight: bold; cursor: pointer; }
     .btn-cancel { background: #333; color: #fff; }
-    .btn-confirm { background: #A04000; color: #fff; } /* 煉瓦土色 */
+    .btn-confirm { background: #A04000; color: #fff; }
   </style>
 </head>
 <body>
@@ -81,8 +84,8 @@
       <div class="input-group"><label>項目內容</label><input type="text" name="item" list="item-list" placeholder="如：好市多、午餐" autocomplete="off" required><datalist id="item-list"></datalist></div>
       <div class="input-group">
         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
-          <label style="margin:0;">金額</label>
-          <label style="margin:0; color:var(--accent); font-size:12px; cursor:pointer;"><input type="checkbox" id="currency-toggle"> 外幣模式</label>
+          <label>金額</label>
+          <label style="color:var(--accent); font-size:12px; cursor:pointer;"><input type="checkbox" id="currency-toggle"> 外幣模式</label>
         </div>
         <input type="text" id="amount-input" name="amount" inputmode="decimal" placeholder="如：999 或 1689" required autocomplete="off">
       </div>
@@ -98,7 +101,7 @@
       
       <div class="input-group">
         <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 6px;">
-          <label style="margin: 0;">照片附件</label>
+          <label>照片附件</label>
           <span id="photo-label" style="font-size: 12px; color: var(--primary);">未選擇</span>
         </div>
         <div style="display: flex; gap: 10px;">
