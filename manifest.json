@@ -1,0 +1,16 @@
+{
+  "name": "曜明精算",
+  "short_name": "曜明精算",
+  "start_url": "index.html",
+  "display": "standalone",
+  "background_color": "#12100E",
+  "theme_color": "#D35400",
+  "icons": [
+    {
+      "src": "logo.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
